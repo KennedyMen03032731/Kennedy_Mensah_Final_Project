@@ -22,3 +22,30 @@ loop:
     blez $t0, input_error_L    
     li $t1, 20                 
     ble $t0, $t1, input_error_L
+     
+    li $v0, 4                  
+    la $a0, prompt_M           
+    syscall                    
+
+    li $v0, 5                 
+    syscall                 
+    move $t2, $v0              
+
+    blez $t2, input_error_M    
+    ble $t2, $t1, input_error_M  
+
+   
+    li $v0, 4                  
+    la $a0, prompt_N           
+    syscall                    
+
+    li $v0, 5                  
+    syscall                    
+    move $t3, $v0              
+
+    blez $t3, input_error_N    
+    ble $t3, $t1, input_error_N  
+
+    j continue
+continue:
+
