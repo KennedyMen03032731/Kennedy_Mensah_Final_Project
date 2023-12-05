@@ -6,3 +6,11 @@ error: .asciiz "Illegal Number!\n"
 
 .text 
 .global main
+main:
+    j  loop                # jump to input_loop to start the process
+
+loop:
+    # Prompt for L
+    li $v0, 4                  # syscall code for printing string
+    la $a0, prompt_L           # load address of prompt string
+    syscall                    # print prompt
