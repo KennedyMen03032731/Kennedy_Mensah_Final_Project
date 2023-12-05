@@ -49,3 +49,34 @@ loop:
     j continue
 continue:
 
+    # remmber $t0 = L // $t2 = M // $t3 = N
+loop beq $t1, $zero, end 
+div $t0m $t1
+mfhi $t0
+move $t0, $t1
+move $t1, $t0
+
+j loop
+
+input_error_L:
+    li $v0, 4                  # syscall code for printing string
+    la $a0, error_msg          # load address of error message
+    syscall                    # print error message
+    j input_loop               # jump back to input_loop for next iteration
+
+input_error_M:
+    li $v0, 4                  # syscall code for printing string
+    la $a0, error_msg          # load address of error message
+    syscall                    # print error message
+    j input_loop               # jump back to input_loop for next iteration
+
+input_error_N:
+    li $v0, 4                  # syscall code for printing string
+    la $a0, error_msg          # load address of error message
+    syscall                    # print error message
+    j input_loop               # jump back to input_loop for next iteration
+
+end_program:
+    li $v0, 10                 # syscall code for exit
+    syscall                    # exit the program
+	
