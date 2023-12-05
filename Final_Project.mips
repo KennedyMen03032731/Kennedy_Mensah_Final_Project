@@ -1,11 +1,15 @@
     .data
-question: .asciiz " Enter a number under 25;"
-error: .asciiz " Illegal Number!;"
+question: .asciiz " Enter a number under 25: \n"
+error: .asciiz " Illegal Number! \n ;"
     .text
     .globl main
 main:
     li $v0, 4
     la $a0, prompt
     syscall 
-input_loop:
-    
+loop:
+    li $v0, 5
+    syscall
+    move $t0, $v0
+    li $t1, 25
+    blt $t0, $t1, police
