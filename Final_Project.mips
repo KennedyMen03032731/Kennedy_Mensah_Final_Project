@@ -30,3 +30,10 @@ continue:
     move $t2, $t3 
     move $t3, $t5
     addi $t4, $t4, 1
+
+    li $v0, 1
+    add $a0, $t3, $zero
+    syscall
+
+    j fibonachi
+complete:
