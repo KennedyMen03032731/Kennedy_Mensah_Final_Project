@@ -1,5 +1,11 @@
     .data
 question: .asciiz " Enter a number under 25;"
 error: .asciiz " Illegal Number!;"
-.text
-.globl main
+    .text
+    .globl main
+main:
+    li $v0, 4
+    la $a0, prompt
+    syscall 
+input_loop:
+    
