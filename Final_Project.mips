@@ -17,13 +17,15 @@ loop:
     li $v0, 4
     la $a0, error
     syscall
-    j loop              #$t0 now holds the value that we have entered and have checked is going to be lager than 25 
+    j loop 
 continue: 
     li $t2, 0 # first of the fib
     li $t3, 1 # second of the fib
     li $t4, 0 #counter
-
- fibonachi:
+    li $v0, 1
+    move $a0, $t3
+    syscall 
+fibonachi:
     bge $t4, $t0, complete 
     
     add $t5, $t2, $t3 
@@ -37,3 +39,5 @@ continue:
 
     j fibonachi
 complete:
+    li $v0, 10                 # syscall code for exit
+    syscall   
