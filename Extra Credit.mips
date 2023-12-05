@@ -7,10 +7,18 @@ error: .asciiz "Illegal Number!\n"
 .text 
 .global main
 main:
-    j  loop                # jump to input_loop to start the process
+    j  loop                
 
 loop:
-    # Prompt for L
-    li $v0, 4                  # syscall code for printing string
-    la $a0, prompt_L           # load address of prompt string
-    syscall                    # print prompt
+    
+    li $v0, 4                  
+    la $a0, prompt_L           
+    syscall                    
+
+    li $v0, 5                  
+    syscall                    
+    move $t0, $v0              
+
+    blez $t0, input_error_L    
+    li $t1, 20                 
+    ble $t0, $t1, input_error_L
