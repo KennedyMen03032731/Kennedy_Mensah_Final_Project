@@ -1,0 +1,5 @@
+    .data
+question: .asciiz " Enter a number under 25;"
+error: .asciiz " Illegal Number!;"
+.text
+.globl main
