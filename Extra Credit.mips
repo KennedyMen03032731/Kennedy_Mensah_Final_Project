@@ -1,0 +1,8 @@
+    .data
+prompt_L: .asciiz "ENTER L (L > 20):\n"
+prompt_M: .asciiz "ENTER M (M > 20):\n"
+prompt_N: .asciiz "ENTER N (N > 20):\n"
+error: .asciiz "Illegal Number!\n"
+
+.text 
+.global main
