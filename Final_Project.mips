@@ -23,4 +23,10 @@ continue:
     li $t3, 1 # second of the fib
     li $t4, 0 #counter
 
+ fibonachi:
+    bge $t4, $t0, complete 
     
+    add $t5, $t2, $t3 
+    move $t2, $t3 
+    move $t3, $t5
+    addi $t4, $t4, 1
