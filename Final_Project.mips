@@ -7,7 +7,7 @@ main:
 j loop 
 loop:
     li $v0, 4
-    la $a0, prompt
+    la $a0, question
     syscall 
     li $v0, 5
     syscall
@@ -17,4 +17,10 @@ loop:
     li $v0, 4
     la $a0, error
     syscall
-    j loop 
+    j loop              #$t0 now holds the value that we have entered and have checked is going to be lager than 25 
+continue: 
+    li $t2, 0 # first of the fib
+    li $t3, 1 # second of the fib
+    li $t4, 0 #counter
+
+    
